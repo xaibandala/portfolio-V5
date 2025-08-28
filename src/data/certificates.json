@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "title": "UI/UX Design Certificate",
+    "issuer": "Design Academy",
+    "date": "2023-02-15",
+    "credential_url": "https://example.com/verify-certificate/1",
+    "image": "/certificates/ui-and-ux-cert.png"
+  }
+]

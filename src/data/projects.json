@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Wifi Tester",
+    "description": "A modern, accessible, no-backend Wi‑Fi strength and speed indicator inspired by fast.com. Built with React, Vite, Tailwind, and Framer Motion.",
+    "image": "projects/wifitester.jpg",
+    "technologies": ["React", "tailwind CSS"],
+    "github": "https://github.com/xaibandala/wifitester",
+    "demo": "https://wifitester.vercel.app/"
+  },
+  {
+    "id": 2,
+    "title": "Nike Shoes Modern Business Landing Page",
+    "description": "A responsive, animated landing page for a Nike-themed shoe store built with React, Vite, and Tailwind CSS.",
+    "image": "projects/nike.jpg",
+    "technologies": ["Vue", "Express"],
+    "github": "https://github.com/xaibandala/nikepage",
+    "demo": "https://nikepage-drab.vercel.app/"
+  },
+  {
+    "id": 3,
+    "title": "Weather Dashboard",
+    "description": "A real-time weather application that displays current weather conditions and forecasts. Features include location detection, 5-day forecast, and weather alerts.",
+    "image": "projects/weather.jpg",
+    "technologies": ["React", "OpenWeather API", "Tailwind CSS"],
+    "github": "https://github.com/username/weather-dashboard",
+    "demo": "https://weather-demo.vercel.app/"
+  },
+  {
+    "id": 4,
+    "title": "Task Management App",
+    "description": "A full-stack task management application with user authentication, real-time updates, and drag-and-drop functionality. Built with MERN stack (MongoDB, Express, React, Node.js).",
+    "image": "projects/taskapp.jpg",
+    "technologies": ["MongoDB", "Express", "React", "Node.js", "JWT"],
+    "github": "https://github.com/username/task-management-app",
+    "demo": "https://taskapp-demo.vercel.app/"
+  }
+]

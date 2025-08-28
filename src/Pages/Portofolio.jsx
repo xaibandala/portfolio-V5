@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
-
-import { supabase } from "../supabase"; 
-
+import projectsData from '../data/projects.json';
+import certificatesData from '../data/certificates.json';
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
@@ -16,7 +15,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Certificate from "../components/Certificate";
 import { Code, Award, Boxes } from "lucide-react";
-
 
 const ToggleButton = ({ onClick, isShowingMore }) => (
   <button
@@ -70,7 +68,6 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
   </button>
 );
 
-
 function TabPanel({ children, value, index, ...other }) {
   return (
     <div
@@ -102,7 +99,6 @@ function a11yProps(index) {
   };
 }
 
-// techStacks tetap sama
 const techStacks = [
   { icon: "html.svg", language: "HTML" },
   { icon: "css.svg", language: "CSS" },
@@ -134,48 +130,47 @@ export default function FullWidthTabs() {
     });
   }, []);
 
-
-  const fetchData = useCallback(async () => {
+  const loadData = useCallback(() => {
     try {
-      // Mengambil data dari Supabase secara paralel
-      const [projectsResponse, certificatesResponse] = await Promise.all([
-        supabase.from("projects").select("*").order('id', { ascending: true }),
-        supabase.from("certificates").select("*").order('id', { ascending: true }), 
-      ]);
-
-      // Error handling untuk setiap request
-      if (projectsResponse.error) throw projectsResponse.error;
-      if (certificatesResponse.error) throw certificatesResponse.error;
-
-      // Supabase mengembalikan data dalam properti 'data'
-      const projectData = projectsResponse.data || [];
-      const certificateData = certificatesResponse.data || [];
-
-      setProjects(projectData);
-      setCertificates(certificateData);
-
-      // Store in localStorage (fungsionalitas ini tetap dipertahankan)
-      localStorage.setItem("projects", JSON.stringify(projectData));
-      localStorage.setItem("certificates", JSON.stringify(certificateData));
+      console.log('Loading projects data...');
+      console.log('Default projects data:', projectsData);
+      
+      // Try to load from local storage first
+      const cachedProjects = localStorage.getItem('projects');
+      const cachedCertificates = localStorage.getItem('certificates');
+      
+      // Use cached data if available, otherwise use the default data
+      const projectsToUse = cachedProjects ? JSON.parse(cachedProjects) : projectsData;
+      const certificatesToUse = cachedCertificates ? JSON.parse(cachedCertificates) : certificatesData;
+      
+      console.log('Projects to use:', projectsToUse);
+      
+      // Make sure we have valid data
+      if (projectsToUse && projectsToUse.length > 0) {
+        setProjects(projectsToUse);
+      } else {
+        setProjects(projectsData);
+      }
+      
+      if (certificatesToUse && certificatesToUse.length > 0) {
+        setCertificates(certificatesToUse);
+      } else {
+        setCertificates(certificatesData);
+      }
+      
+      // Update local storage with current data
+      localStorage.setItem("projects", JSON.stringify(projectsData));
     } catch (error) {
-      console.error("Error fetching data from Supabase:", error.message);
+      console.error("Error loading data:", error);
+      // Fallback to default data if there's an error
+      setProjects(projectsData);
+      setCertificates(certificatesData);
     }
   }, []);
 
-
-
   useEffect(() => {
-    // Coba ambil dari localStorage dulu untuk laod lebih cepat
-    const cachedProjects = localStorage.getItem('projects');
-    const cachedCertificates = localStorage.getItem('certificates');
-
-    if (cachedProjects && cachedCertificates) {
-        setProjects(JSON.parse(cachedProjects));
-        setCertificates(JSON.parse(cachedCertificates));
-    }
-    
-    fetchData(); // Tetap panggil fetchData untuk sinkronisasi data terbaru
-  }, [fetchData]);
+    loadData();
+  }, [loadData]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -189,6 +184,7 @@ export default function FullWidthTabs() {
     }
   }, []);
 
+  console.log('Rendering projects:', projects);
   const displayedProjects = showAllProjects ? projects : projects.slice(0, initialItems);
   const displayedCertificates = showAllCertificates ? certificates : certificates.slice(0, initialItems);
 
@@ -316,11 +312,13 @@ export default function FullWidthTabs() {
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
                   >
                     <CardProject
-                      Img={project.Img}
-                      Title={project.Title}
-                      Description={project.Description}
-                      Link={project.Link}
                       id={project.id}
+                      title={project.title}
+                      description={project.description}
+                      image={project.image}
+                      technologies={project.technologies || []}
+                      github={project.github}
+                      demo={project.demo}
                     />
                   </div>
                 ))}
@@ -339,13 +337,20 @@ export default function FullWidthTabs() {
           <TabPanel value={value} index={1} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
+                {console.log('Rendering certificates:', displayedCertificates)}
                 {displayedCertificates.map((certificate, index) => (
                   <div
                     key={certificate.id || index}
                     data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
                   >
-                    <Certificate ImgSertif={certificate.Img} />
+                    <Certificate 
+                      ImgSertif={certificate.image} 
+                      title={certificate.title}
+                      issuer={certificate.issuer}
+                      date={certificate.date}
+                      credentialUrl={certificate.credential_url}
+                    />
                   </div>
                 ))}
               </div>

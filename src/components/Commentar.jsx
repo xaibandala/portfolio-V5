@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
-import { createClient } from '@supabase/supabase-js';
 import { MessageCircle, UserCircle2, Loader2, AlertCircle, Send, ImagePlus, X, Pin } from 'lucide-react';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { supabase } from '../supabase';
-
 
 const Comment = memo(({ comment, formatDate, index, isPinned = false }) => (
     <div 
@@ -127,7 +124,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                     type="text"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
-                     maxLength={15}
+                    maxLength={15}
                     placeholder="Enter your name"
                     className="w-full p-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
                     required
@@ -141,8 +138,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                 <textarea
                     ref={textareaRef}
                     value={newComment}
-                     maxLength={200}
-
+                    maxLength={200}
                     onChange={handleTextareaChange}
                     placeholder="Write your message here..."
                     className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none min-h-[120px]"
@@ -228,134 +224,133 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
 const Komentar = () => {
     const [comments, setComments] = useState([]);
     const [pinnedComment, setPinnedComment] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [error, setError] = useState('');
+    const [showForm, setShowForm] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [showError, setShowError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
+    // Load comments from localStorage on component mount
     useEffect(() => {
-        // Initialize AOS
-        AOS.init({
-            once: false,
-            duration: 1000,
-        });
-    }, []);
-
-    // Fetch pinned comment
-    useEffect(() => {
-        const fetchPinnedComment = async () => {
+        const loadComments = () => {
             try {
-                const { data, error } = await supabase
-                    .from('portfolio_comments')
-                    .select('*')
-                    .eq('is_pinned', true)
-                    .single();
+                const savedComments = localStorage.getItem('portfolio_comments');
+                const savedPinned = localStorage.getItem('pinned_comment');
                 
-                if (error && error.code !== 'PGRST116') {
-                    console.error('Error fetching pinned comment:', error);
-                    return;
+                if (savedComments) {
+                    setComments(JSON.parse(savedComments));
                 }
                 
-                if (data) {
-                    setPinnedComment(data);
+                if (savedPinned) {
+                    setPinnedComment(JSON.parse(savedPinned));
                 }
+                
+                setIsLoading(false);
             } catch (error) {
-                console.error('Error fetching pinned comment:', error);
+                console.error('Error loading comments:', error);
+                setError('Failed to load comments');
+                setIsLoading(false);
             }
         };
-
-        fetchPinnedComment();
-    }, []);
-
-    // Fetch regular comments (excluding pinned) and set up real-time subscription
-    useEffect(() => {
-        const fetchComments = async () => {
-            const { data, error } = await supabase
-                .from('portfolio_comments')
-                .select('*')
-                .eq('is_pinned', false)
-                .order('created_at', { ascending: false });
-            
-            if (error) {
-                console.error('Error fetching comments:', error);
-                return;
-            }
-            
-            setComments(data || []);
-        };
-
-        fetchComments();
-
-        // Set up real-time subscription
-        const subscription = supabase
-            .channel('portfolio_comments')
-            .on('postgres_changes', 
-                { 
-                    event: '*', 
-                    schema: 'public', 
-                    table: 'portfolio_comments',
-                    filter: 'is_pinned=eq.false'
-                }, 
-                () => {
-                    fetchComments(); // Refresh comments when changes occur
-                }
-            )
-            .subscribe();
-
-        return () => {
-            subscription.unsubscribe();
-        };
-    }, []);
-
-    const uploadImage = useCallback(async (imageFile) => {
-        if (!imageFile) return null;
         
-        const fileExt = imageFile.name.split('.').pop();
-        const fileName = `${Date.now()}_${Math.random().toString(36).substring(2)}.${fileExt}`;
-        const filePath = `profile-images/${fileName}`;
-
-        const { error: uploadError } = await supabase.storage
-            .from('profile-images')
-            .upload(filePath, imageFile);
-
-        if (uploadError) {
-            throw uploadError;
-        }
-
-        const { data } = supabase.storage
-            .from('profile-images')
-            .getPublicUrl(filePath);
-
-        return data.publicUrl;
+        loadComments();
     }, []);
 
-    const handleCommentSubmit = useCallback(async ({ newComment, userName, imageFile }) => {
-        setError('');
-        setIsSubmitting(true);
-        
+    const saveComments = (commentsList, pinned = null) => {
         try {
-            const profileImageUrl = await uploadImage(imageFile);
-            
-            const { error } = await supabase
-                .from('portfolio_comments')
-                .insert([
-                    {
-                        content: newComment,
-                        user_name: userName,
-                        profile_image: profileImageUrl,
-                        is_pinned: false,
-                        created_at: new Date().toISOString()
-                    }
-                ]);
-
-            if (error) {
-                throw error;
+            localStorage.setItem('portfolio_comments', JSON.stringify(commentsList));
+            if (pinned) {
+                localStorage.setItem('pinned_comment', JSON.stringify(pinned));
+            } else {
+                localStorage.removeItem('pinned_comment');
             }
         } catch (error) {
-            setError('Failed to post comment. Please try again.');
-            console.error('Error adding comment: ', error);
+            console.error('Error saving comments:', error);
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        const form = e.target;
+        const content = form.comment.value.trim();
+        const userName = form.userName.value.trim();
+        const imageFile = form.imageFile?.files[0];
+        
+        if (!content || !userName) {
+            setError('Please fill in all required fields');
+            setShowError(true);
+            setTimeout(() => setShowError(false), 3000);
+            return;
+        }
+        
+        setIsSubmitting(true);
+        setError(null);
+        
+        try {
+            const newComment = {
+                id: Date.now().toString(),
+                user_name: userName,
+                content: content,
+                profile_image: imageFile ? URL.createObjectURL(imageFile) : null,
+                is_pinned: false,
+                created_at: new Date().toISOString()
+            };
+            
+            // Add new comment to the beginning of the list
+            const updatedComments = [newComment, ...comments];
+            setComments(updatedComments);
+            saveComments(updatedComments, pinnedComment);
+            
+            setSuccessMessage('Comment submitted successfully!');
+            setShowSuccess(true);
+            setTimeout(() => setShowSuccess(false), 3000);
+            
+            // Reset form
+            form.reset();
+            setShowForm(false);
+        } catch (error) {
+            console.error('Error submitting comment:', error);
+            setError('Failed to submit comment. Please try again.');
+            setShowError(true);
+            setTimeout(() => setShowError(false), 3000);
         } finally {
             setIsSubmitting(false);
         }
-    }, [uploadImage]);
+    };
+    
+    const handlePinComment = (commentId) => {
+        const commentToPin = comments.find(c => c.id === commentId) || 
+                           (pinnedComment?.id === commentId ? pinnedComment : null);
+        
+        if (!commentToPin) return;
+        
+        // If the comment is already pinned, unpin it
+        if (pinnedComment?.id === commentId) {
+            const updatedComments = [pinnedComment, ...comments];
+            setPinnedComment(null);
+            setComments(updatedComments);
+            saveComments(updatedComments, null);
+            return;
+        }
+        
+        // If there's already a pinned comment, add it to the regular comments
+        let updatedComments = [...comments];
+        if (pinnedComment) {
+            updatedComments = [pinnedComment, ...comments];
+        }
+        
+        // Remove the newly pinned comment from the regular comments
+        updatedComments = updatedComments.filter(c => c.id !== commentId);
+        
+        // Set the new pinned comment
+        setPinnedComment({ ...commentToPin, is_pinned: true });
+        setComments(updatedComments);
+        saveComments(updatedComments, { ...commentToPin, is_pinned: true });
+    };
 
     const formatDate = useCallback((timestamp) => {
         if (!timestamp) return '';
@@ -401,18 +396,25 @@ const Komentar = () => {
                 )}
                 
                 <div>
-                    <CommentForm onSubmit={handleCommentSubmit} isSubmitting={isSubmitting} error={error} />
+                    <CommentForm onSubmit={handleSubmit} isSubmitting={isSubmitting} error={error} />
                 </div>
 
                 <div className="space-y-4 h-[328px] overflow-y-auto overflow-x-hidden custom-scrollbar pt-1 pr-1 " data-aos="fade-up" data-aos-delay="200">
                     {/* Pinned Comment */}
                     {pinnedComment && (
-                        <div data-aos="fade-down" data-aos-duration="800">
+                        <div className="mb-6 relative group">
+                            <button 
+                                onClick={() => handlePinComment(pinnedComment.id)}
+                                className="absolute -left-8 top-2 opacity-0 group-hover:opacity-100 transition-opacity p-1 text-indigo-400 hover:text-indigo-300"
+                                title="Unpin comment"
+                            >
+                                <Pin className="w-4 h-4" />
+                            </button>
                             <Comment 
                                 comment={pinnedComment} 
-                                formatDate={formatDate}
-                                index={0}
-                                isPinned={true}
+                                formatDate={formatDate} 
+                                index="pinned" 
+                                isPinned={true} 
                             />
                         </div>
                     )}
@@ -425,13 +427,20 @@ const Komentar = () => {
                         </div>
                     ) : (
                         comments.map((comment, index) => (
-                            <Comment 
-                                key={comment.id} 
-                                comment={comment} 
-                                formatDate={formatDate}
-                                index={index + (pinnedComment ? 1 : 0)}
-                                isPinned={false}
-                            />
+                            <div key={comment.id || index} className="mb-4 group relative">
+                                <button 
+                                    onClick={() => handlePinComment(comment.id)}
+                                    className="absolute -left-8 top-2 opacity-0 group-hover:opacity-100 transition-opacity p-1 text-gray-400 hover:text-indigo-400"
+                                    title="Pin comment"
+                                >
+                                    <Pin className="w-4 h-4" />
+                                </button>
+                                <Comment 
+                                    comment={comment} 
+                                    formatDate={formatDate} 
+                                    index={index} 
+                                />
+                            </div>
                         ))
                     )}
                 </div>

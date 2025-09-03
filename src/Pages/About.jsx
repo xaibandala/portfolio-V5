@@ -116,7 +116,9 @@ const AboutPage = () => {
   // Memoized calculations
   const { totalProjects, totalCertificates, YearExperience } = useMemo(() => {
     const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
-    const storedCertificates = JSON.parse(localStorage.getItem("certificates") || "[]");
+    
+    // Hardcoded certificate count based on certificates.json
+    const certificateCount = 1;
     
     const startDate = new Date("2021-11-06");
     const today = new Date();
@@ -125,7 +127,7 @@ const AboutPage = () => {
 
     return {
       totalProjects: storedProjects.length,
-      totalCertificates: storedCertificates.length,
+      totalCertificates: certificateCount,
       YearExperience: experience
     };
   }, []);
@@ -214,7 +216,7 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-             Seorang lulusan Teknik Jaringan Komputer dan Telekomunikasi yang memiliki ketertarikan besar dalam pengembangan Front-End. Saya berfokus pada menciptakan pengalaman digital yang menarik dan selalu berusaha memberikan solusi terbaik dalam setiap proyek yang saya kerjakan.
+              I am optimistic, goal-driven, and teachable. My dream career is to become a well-rounded IT professional who can contribute to technological innovation and digital transformation in the country. I’m passionate about exploring the vast world of Information Technology—from software development and cybersecurity to networking, data analytics, and system design. To achieve this goal, I strive to excel in my studies while actively seeking opportunities to grow both my technical and interpersonal skills through participating in various projects, events, and activities in our college.
             </p>
 
                {/* Quote Section */}

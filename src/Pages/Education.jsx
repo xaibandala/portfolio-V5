@@ -11,16 +11,16 @@ const Education = () => {
   const educationData = [
     {
       id: 1,
-      degree: 'Bachelor of Computer Science',
-      institution: 'University Name',
-      period: '2020 - 2024',
+      degree: 'Bachelor of Information Technology',
+      institution: 'AMA Computer College of Davao',
+      period: '2022 - 2025',
       description: 'Relevant coursework: Data Structures, Algorithms, Web Development, Database Systems, Software Engineering, Artificial Intelligence'
     },
     {
       id: 2,
-      degree: 'High School Diploma',
-      institution: 'High School Name',
-      period: '2016 - 2020',
+      degree: 'Science, Technology, Engineering, and Mathematics',
+      institution: 'Calinan National High School',
+      period: '2016 - 2022',
       description: 'Graduated with honors. Participated in science fairs and coding competitions.'
     }
   ];

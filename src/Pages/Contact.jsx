@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Share2, User, Mail, MessageSquare, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import SocialLinks from "../components/SocialLinks";
-import Komentar from "../components/Commentar";
 import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -125,7 +124,7 @@ const ContactPage = () => {
               WebkitTextFillColor: "transparent",
             }}
           >
-            Hubungi Saya
+            Get In Touch
           </span>
         </h2>
         <p
@@ -133,7 +132,7 @@ const ContactPage = () => {
           data-aos-duration="1100"
           className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2"
         >
-          Punya pertanyaan? Kirimi saya pesan, dan saya akan segera membalasnya.
+          Got a question? Send me a message, and I’ll reply right away.
         </p>
       </div>
 
@@ -224,13 +223,10 @@ const ContactPage = () => {
               </button>
             </form>
 
-            <div className="mt-10 pt-6 border-t border-white/10 flex justify-center space-x-6">
-              <SocialLinks />
-            </div>
           </div>
 
-          <div className="  bg-white/5 backdrop-blur-xl rounded-3xl p-3 py-3 md:p-10 md:py-8 shadow-2xl transform transition-all duration-500 hover:shadow-[#6366f1]/10">
-            <Komentar />
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-6 transform transition-all duration-500 hover:shadow-[#6366f1]/10">
+            <SocialLinks />
           </div>
         </div>
       </div>

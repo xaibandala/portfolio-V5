@@ -34,8 +34,8 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     Swal.fire({
-      title: 'Mengirim Pesan...',
-      html: 'Harap tunggu selagi kami mengirim pesan Anda',
+      title: 'sending...',
+      html: 'please wait',
       allowOutsideClick: false,
       didOpen: () => {
         Swal.showLoading();
@@ -63,8 +63,8 @@ const ContactPage = () => {
 
      
       Swal.fire({
-        title: 'Berhasil!',
-        text: 'Pesan Anda telah berhasil terkirim!',
+        title: 'Done!',
+        text: 'thank you!',
         icon: 'success',
         confirmButtonColor: '#6366f1',
         timer: 2000,
@@ -80,8 +80,8 @@ const ContactPage = () => {
     } catch (error) {
       if (error.request && error.request.status === 0) {
         Swal.fire({
-          title: 'Berhasil!',
-          text: 'Pesan Anda telah berhasil terkirim!',
+          title: 'done!',
+          text: 'thank you!',
           icon: 'success',
           confirmButtonColor: '#6366f1',
           timer: 2000,
@@ -170,7 +170,7 @@ const ContactPage = () => {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Nama"
+                  placeholder="Name"
                   value={formData.name}
                   onChange={handleChange}
                   disabled={isSubmitting}

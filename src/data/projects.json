@@ -4,7 +4,6 @@
     "title": "Wifi Tester",
     "description": "A modern, accessible, no-backend Wi‑Fi strength and speed indicator inspired by fast.com. Built with React, Vite, Tailwind, and Framer Motion.",
     "image": "projects/wifitester.jpg",
-    "technologies": ["React", "tailwind CSS"],
     "github": "https://github.com/xaibandala/wifitester",
     "demo": "https://wifitester.vercel.app/"
   },
@@ -13,7 +12,6 @@
     "title": "Nike Shoes Modern Business Landing Page",
     "description": "A responsive, animated landing page for a Nike-themed shoe store built with React, Vite, and Tailwind CSS.",
     "image": "projects/nike.jpg",
-    "technologies": ["Vue", "Express"],
     "github": "https://github.com/xaibandala/nikepage",
     "demo": "https://nikepage-drab.vercel.app/"
   },
@@ -22,7 +20,6 @@
     "title": "Dark Aesthetic Portfolio",
     "description": "A real-time weather application that displays current weather conditions and forecasts. Features include location detection, 5-day forecast, and weather alerts.",
     "image": "projects/port1.jpg",
-    "technologies": ["React", "OpenWeather API", "Tailwind CSS"],
     "github": "https://github.com/xaibandala/myport-V1",
     "demo": "https://xaibandala2.vercel.app/"
   },
@@ -31,7 +28,6 @@
     "title": "Couple Simple Responsive Portfolio",
     "description": "A full-stack task management application with user authentication, real-time updates, and drag-and-drop functionality. Built with MERN stack (MongoDB, Express, React, Node.js).",
     "image": "projects/loml1.jpg",
-    "technologies": ["MongoDB", "Express", "React", "Node.js", "JWT"],
     "github": "https://github.com/xaibandala/lomlat5-V2",
     "demo": "https://lomlv2.vercel.app/"
   },
@@ -40,7 +36,6 @@
     "title": "Oyeee Petshop System",
     "description": "Simple capstone project using PHP.",
     "image": "projects/oyeee.jpg",
-    "technologies": ["React", "Node.js", "MongoDB", "Express", "Chart.js"],
     "github": "https://github.com/xaibandala/capstone",
     "demo": "https://petshopoyeee.com/"
   },
@@ -49,7 +44,6 @@
     "title": "PHP Enrollment System",
     "description": "A mobile-first web application that helps users discover recipes based on available ingredients. Includes dietary filters, step-by-step instructions, and nutritional information.",
     "image": "projects/enroll1.jpg",
-    "technologies": ["React Native", "Redux", "Spoonacular API", "Firebase"],
     "github": "https://github.com/xaibandala/php-enrollment-system",
     "demo": "https://recipe-finder.xaibandala.vercel.app/"
   },
@@ -58,7 +52,6 @@
     "title": "PHP blog system",
     "description": "A progressive web app for tracking workouts, nutrition, and fitness goals. Includes exercise database, workout planning, and progress visualization.",
     "image": "projects/blog1.jpg",
-    "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
     "github": "https://github.com/xaibandala/blog",
     "demo": "https://fitness-tracker.xaibandala.vercel.app/"
   },
@@ -67,7 +60,6 @@
     "title": "Wedding Web Portfolio",
     "description": "A modern blog platform with AI-assisted content generation. Features include markdown support, syntax highlighting, and automated content suggestions.",
     "image": "projects/ai1.jpg",
-    "technologies": ["React", "Node.js", "OpenAI API", "MongoDB", "GraphQL"],
     "github": "https://github.com/xaibandala/wed-web",
     "demo": "https://ai-blog.xaibandala.vercel.app/"
   }

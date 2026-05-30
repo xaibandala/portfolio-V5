@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "UI/UX Design Certificate",
+    "issuer": "Design Academy",
+    "date": "2023-02-15",
+    "credential_url": "https://example.com/verify-certificate/1",
+    "image": "/certificates/ui-and-ux-cert.png"
+  },
+  {
+    "id": 2,
+    "title": "Certificate Title",
+    "issuer": "Issuer Name",
+    "date": "YYYY-MM-DD",
+    "credential_url": "https://example.com/verify-certificate/2",
+    "image": "/certificates/ITsupport.png"
+  },
+  {
+    "id": 3,
+    "title": "Certificate Title",
+    "issuer": "Issuer Name",
+    "date": "YYYY-MM-DD",
+    "credential_url": "https://example.com/verify-certificate/3",
+    "image": "/certificates/udemy.png"
+  },
+  {
+    "id": 4,
+    "title": "Certificate Title",
+    "issuer": "Issuer Name",
+    "date": "YYYY-MM-DD",
+    "credential_url": "https://example.com/verify-certificate/4",
+    "image": "/certificates/digital.png"
+  },
+  {
+    "id": 5,
+    "title": "Certificate Title",
+    "issuer": "Issuer Name",
+    "date": "YYYY-MM-DD",
+    "credential_url": "https://example.com/verify-certificate/5",
+    "image": "/certificates/cybersec.png"
+  },
+  {
+    "id": 6,
+    "title": "Certificate Title",
+    "issuer": "Issuer Name",
+    "date": "YYYY-MM-DD",
+    "credential_url": "https://example.com/verify-certificate/6",
+    "image": "/certificates/networks.png"
+  },
+  {
+    "id": 7,
+    "title": "Certificate Title",
+    "issuer": "Issuer Name",
+    "date": "YYYY-MM-DD",
+    "credential_url": "https://example.com/verify-certificate/7",
+    "image": "/certificates/switching.png"
+  }
+  ,
+  {
+    "id": 8,
+    "title": "Certificate Title",
+    "issuer": "Issuer Name",
+    "date": "YYYY-MM-DD",
+    "credential_url": "https://example.com/verify-certificate/8",
+    "image": "/certificates/enterprise.png"
+  }
+]

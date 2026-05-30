@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "title": "Wifi Tester",
+    "description": "A modern, accessible, no-backend Wi‑Fi strength and speed indicator inspired by fast.com. Built with React, Vite, Tailwind, and Framer Motion.",
+    "image": "projects/wifitester.jpg",
+    "github": "https://github.com/xaibandala/wifitester",
+    "demo": "https://wifitester.vercel.app/"
+  },
+  {
+    "id": 2,
+    "title": "Nike Shoes Modern Business Landing Page",
+    "description": "A responsive, animated landing page for a Nike-themed shoe store built with React, Vite, and Tailwind CSS.",
+    "image": "projects/nike.jpg",
+    "github": "https://github.com/xaibandala/nikepage",
+    "demo": "https://nikepage-drab.vercel.app/"
+  },
+  {
+    "id": 3,
+    "title": "Dark Aesthetic Portfolio",
+    "description": "A sleek dark-themed personal portfolio website showcasing development projects with smooth animations and modern UI design. Built with React, Vite, and Tailwind CSS.",
+    "image": "projects/port1.jpg",
+    "github": "https://github.com/xaibandala/myport-V1",
+    "demo": "https://xaibandala2.vercel.app/"
+  },
+  {
+    "id": 4,
+    "title": "Couple Simple Responsive Portfolio",
+    "description": "A simple, responsive portfolio website for a couple, showcasing their love story and shared interests. Built with React, Vite, and Tailwind CSS.",
+    "image": "projects/loml1.jpg",
+    "github": "https://github.com/xaibandala/lomlat5-V2",
+    "demo": "https://lomlv2.vercel.app/"
+  },
+  {
+    "id": 5,
+    "title": "Oyeee Petshop System",
+    "description": "Simple capstone project using PHP.",
+    "image": "projects/oyeee.jpg",
+    "github": "https://github.com/xaibandala/capstone",
+    "demo": "https://petshopoyeee.com/"
+  },
+  {
+    "id": 6,
+    "title": "PHP Enrollment System",
+    "description": "A mobile-first web application that helps users discover recipes based on available ingredients. Includes dietary filters, step-by-step instructions, and nutritional information.",
+    "image": "projects/enroll1.jpg",
+    "github": "https://github.com/xaibandala/php-enrollment-system",
+    "demo": "https://recipe-finder.xaibandala.vercel.app/"
+  },
+  {
+    "id": 7,
+    "title": "PHP blog system",
+    "description": "A progressive web app for tracking workouts, nutrition, and fitness goals. Includes exercise database, workout planning, and progress visualization.",
+    "image": "projects/blog1.jpg",
+    "github": "https://github.com/xaibandala/blog",
+    "demo": "https://fitness-tracker.xaibandala.vercel.app/"
+  },
+  {
+    "id": 8,
+    "title": "Wedding Web Portfolio",
+    "description": "A modern blog platform with AI-assisted content generation. Features include markdown support, syntax highlighting, and automated content suggestions.",
+    "image": "projects/ai1.jpg",
+    "github": "https://github.com/xaibandala/wed-web",
+    "demo": "https://ai-blog.xaibandala.vercel.app/"
+  },
+  {
+    "id": 9,
+    "title": "AnimeVerse-Dive into the universe of anime.",
+    "description": "Animeverse is a web platform where anime lovers can discover, browse, and enjoy titles from every genre. Whether you’re into action, romance, fantasy, or slice-of-life, AniSphere makes finding your next favorite series simple and fun.",
+    "image": "projects/animeverse.png",
+    "github": "https://github.com/xaibandala/web-anime-landing-page",
+    "demo": "https://web-anime-page.vercel.app/#home"
+  },
+  {
+    "id": 10,
+    "title": "Football Hub",
+    "description": "FootballHub brings fans closer to the game — offering live scores, team insights, fixtures, and the latest football news, all in one easy-to-use platform.",
+    "image": "projects/footballhub.png",
+    "github": "https://github.com/xaibandala/football-hub",
+    "demo": "https://football-hub1.vercel.app/"
+  },
+  {
+    "id": 11,
+    "title": "Recipe Finder",
+    "description": "A web application that helps users discover recipes based on available ingredients. Includes dietary filters, step-by-step instructions, and nutritional information.",
+    "image": "projects/recipefinder.png",
+    "github": "https://github.com/xaibandala/recipe-finder",
+    "demo": "https://yum-finder-nine.vercel.app/"
+  }
+]

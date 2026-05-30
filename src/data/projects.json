@@ -86,5 +86,29 @@
     "image": "projects/recipefinder.png",
     "github": "https://github.com/xaibandala/recipe-finder",
     "demo": "https://yum-finder-nine.vercel.app/"
+  },
+  {
+    "id": 12,
+    "title": "Todo Task Manager",
+    "description": "A productivity-focused task management app with real-time updates, priority levels, and deadline tracking. Features include task categorization, filtering, and progress visualization. Built with React, Vite, and Tailwind CSS.",
+    "image": "projects/todo.png",
+    "github": "https://github.com/xaibandala/todo-app",
+    "demo": "https://todo-task-manager.vercel.app/"
+  },
+  {
+    "id": 13,
+    "title": "Weather Dashboard",
+    "description": "A real-time weather application providing current conditions, forecasts, and weather alerts for multiple locations. Features include interactive maps, historical data charts, and personalized weather notifications. Built with React, API integration, and Tailwind CSS.",
+    "image": "projects/weather.png",
+    "github": "https://github.com/xaibandala/weather-dashboard",
+    "demo": "https://weather-dashboard-app.vercel.app/"
+  },
+  {
+    "id": 14,
+    "title": "E-Commerce Store",
+    "description": "A full-featured e-commerce platform with product catalog, shopping cart, payment integration, and order management. Includes user authentication, product search, and customer reviews. Built with React, Node.js, and MongoDB.",
+    "image": "projects/ecommerce.png",
+    "github": "https://github.com/xaibandala/ecommerce-store",
+    "demo": "https://ecommerce-store.vercel.app/"
   }
 ]

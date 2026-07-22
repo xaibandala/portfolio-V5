@@ -227,15 +227,6 @@ If you encounter issues while running the project:
   - Make sure your Supabase configuration in the `.env` file is correct and the server has been restarted.
   - Clear your browser cache and try again.
 
-## 📝 Usage & Credits
-
-We would appreciate it if you decide to use this project. Please include proper credit when using it. Thank you\! 🙏
-
-## 📞 Contact
-
-If you have any questions or need help with the setup, feel free to reach out\!
-
-
 
   - Website: [xai.bandala.vercel.app/](xai.bandala.vercel.app/)
   - GitHub: 

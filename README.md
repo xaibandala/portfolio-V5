@@ -6,7 +6,7 @@ I'm **Xai Bandala**, a Frontend Developer with a passion for creating beautiful 
 
 ## 🚀 Live Demo
 
-**Website Link:** [https://xaibandala.github.io/portfolio-V5/](https://xaibandala.github.io/portfolio-V5/)
+**Website Link:** https://xaibandala.vercel.app/
 
 ## 🛠️ Tech Stack
 

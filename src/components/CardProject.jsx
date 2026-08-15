@@ -16,7 +16,9 @@ const techIcons = {
   'Bootstrap': 'bootstrap.svg',
   'Material UI': 'MUI.svg',
   'Firebase': 'firebase.svg',
-  'Vercel': 'vercel.svg'
+  'Vercel': 'vercel.svg',
+  'Laravel': 'laravel.svg',
+  'MySQL': 'mysql.svg'
 };
 
 const CardProject = ({ 

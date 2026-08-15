@@ -4,6 +4,7 @@ import {
   Github,
   Mail,
   Facebook,
+  Phone,
   ExternalLink,
 } from "lucide-react";
 import AOS from "aos";
@@ -47,12 +48,22 @@ const socialLinks = [
     color: "#1877F2",
     gradient: "from-[#1877F2] to-[#0A66C2]",
   },
+  {
+    name: "WhatsApp",
+    displayName: "WhatsApp",
+    subText: "09701123405",
+    icon: Phone,
+    img: "whatsapp.svg",
+    url: "https://wa.me/639701123405",
+    color: "#25D366",
+    gradient: "from-[#25D366] to-[#128C7E]",
+  },
 ];
 
 const SocialLinks = () => {
   const linkedIn = socialLinks.find((link) => link.isPrimary);
   const otherLinks = socialLinks.filter((link) => !link.isPrimary);
-  const [email, github, facebook] = otherLinks;
+  const [email, github, facebook, whatsapp] = otherLinks;
 
   useEffect(() => {
     AOS.init({
@@ -158,10 +169,18 @@ const SocialLinks = () => {
                   style={{ backgroundColor: link.color }}
                 />
                 <div className="relative p-2 rounded-lg">
-                  <link.icon
-                    className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
-                    style={{ color: link.color }}
-                  />
+                  {link.img ? (
+                    <img
+                      src={link.img}
+                      alt={link.name}
+                      className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <link.icon
+                      className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
+                      style={{ color: link.color }}
+                    />
+                  )}
                 </div>
               </div>
 
@@ -217,10 +236,18 @@ const SocialLinks = () => {
                   style={{ backgroundColor: link.color }}
                 />
                 <div className="relative p-2 rounded-lg">
-                  <link.icon
-                    className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
-                    style={{ color: link.color }}
-                  />
+                  {link.img ? (
+                    <img
+                      src={link.img}
+                      alt={link.name}
+                      className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <link.icon
+                      className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
+                      style={{ color: link.color }}
+                    />
+                  )}
                 </div>
               </div>
 
@@ -276,10 +303,85 @@ const SocialLinks = () => {
                   style={{ backgroundColor: link.color }}
                 />
                 <div className="relative p-2 rounded-lg">
-                  <link.icon
-                    className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
-                    style={{ color: link.color }}
-                  />
+                  {link.img ? (
+                    <img
+                      src={link.img}
+                      alt={link.name}
+                      className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <link.icon
+                      className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
+                      style={{ color: link.color }}
+                    />
+                  )}
+                </div>
+              </div>
+
+              {/* Text Container */}
+              <div className="flex flex-col min-w-0">
+                <span className="text-sm font-bold text-gray-200 group-hover:text-white transition-colors duration-300">
+                  {link.displayName}
+                </span>
+                <span className="text-xs text-gray-400 truncate group-hover:text-gray-300 transition-colors duration-300">
+                  {link.subText}
+                </span>
+              </div>
+
+              <ExternalLink
+                className="w-4 h-4 text-gray-500 group-hover:text-white ml-auto
+                                       opacity-0 group-hover:opacity-100 transition-all duration-300
+                                       transform group-hover:translate-x-0 -translate-x-2"
+              />
+
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none overflow-hidden">
+                <div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent
+                                       translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
+                />
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Fifth Row - WhatsApp */}
+        <div className="grid grid-cols-1 gap-4">
+          {[whatsapp].map((link, index) => (
+            <a
+              key={link.name}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-3 p-4 rounded-xl 
+                               bg-white/5 border border-white/10 overflow-hidden
+                               hover:border-white/20 transition-all duration-500"
+              data-aos="fade-up" 
+              data-aos-delay={600 + index * 100}
+            >
+              <div
+                className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500
+                                     bg-gradient-to-r ${link.gradient}`}
+              />
+
+              <div className="relative flex items-center justify-center">
+                <div
+                  className="absolute inset-0 opacity-20 rounded-lg transition-all duration-500
+                                       group-hover:scale-125 group-hover:opacity-30"
+                  style={{ backgroundColor: link.color }}
+                />
+                <div className="relative p-2 rounded-lg">
+                  {link.img ? (
+                    <img
+                      src={link.img}
+                      alt={link.name}
+                      className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <link.icon
+                      className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
+                      style={{ color: link.color }}
+                    />
+                  )}
                 </div>
               </div>
 

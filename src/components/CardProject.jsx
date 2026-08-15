@@ -113,7 +113,7 @@ const CardProject = ({
                 <span className="text-gray-500 text-sm">Demo Not Available</span>
               )}
               
-              <a
+              {/* <a
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -121,7 +121,7 @@ const CardProject = ({
               >
                 <span className="text-sm font-medium">GitHub</span>
                 <ExternalLink className="w-4 h-4" />
-              </a>
+              </a> */}
             </div>
           </div>
           

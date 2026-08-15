@@ -122,7 +122,7 @@ const AboutPage = () => {
     const certificateCount = certificates.length;
     
     // Hardcoded years of experience
-    const experience = 1;
+    const experience = 2;
 
     return {
       totalProjects: storedProjects.length,

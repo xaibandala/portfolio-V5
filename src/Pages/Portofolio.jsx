@@ -126,6 +126,7 @@ const techStacks = [
   { icon: "xampp.svg", language: "XAMPP" },
   { icon: "oracle.svg", language: "Oracle" },
   { icon: "notion.svg", language: "Notion" },
+  { icon: "vscode.svg", language: "VS Code" },
 ];
 
 export default function FullWidthTabs() {

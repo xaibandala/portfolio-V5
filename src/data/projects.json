@@ -75,5 +75,25 @@
     "description": "A web application that helps users discover recipes based on available ingredients. Includes dietary filters, step-by-step instructions, and nutritional information.",
     "image": "projects/recipefinder.webp",
     "demo": "https://yum-finder-nine.vercel.app/"
+  },
+  {
+    "id": 12,
+    "title": "Coffee Shop Website",
+    "description": "A modern, responsive coffee shop website featuring an elegant menu, cozy brand aesthetic, and smooth animations. Built to showcase products, store info, and a warm, inviting online presence for a local café.",
+    "image": "projects/coffeeshop.webp"
+  },
+  {
+    "id": 13,
+    "title": "POS & Inventory System",
+    "description": "A Point of Sale (POS) and inventory management system built with Laravel, React, and MySQL. It handles daily sales transactions, receipts, and product tracking in real time, and includes stock monitoring and reporting to help businesses operate more efficiently.",
+    "image": "projects/pos.webp",
+    "technologies": ["React", "Laravel", "MySQL"]
+  },
+  {
+    "id": 14,
+    "title": "FixDesk",
+    "description": "FixDesk is a help desk ticketing system built with Laravel, React, and MySQL. It lets teams create, assign, track, and resolve support tickets from submission to closure, with status management and reporting to streamline customer support operations.",
+    "image": "projects/fixdesk.webp",
+    "technologies": ["React", "Laravel", "MySQL"]
   }
 ]

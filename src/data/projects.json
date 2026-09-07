@@ -21,20 +21,6 @@
     "demo": "https://xaibandala2.vercel.app/"
   },
   {
-    "id": 5,
-    "title": "Oyeee Petshop System",
-    "description": "Simple capstone project using PHP.",
-    "image": "projects/oyeee.webp",
-    "demo": "https://petshopoyeee.com/"
-  },
-  {
-    "id": 6,
-    "title": "PHP Enrollment System",
-    "description": "A mobile-first web application that helps users discover recipes based on available ingredients. Includes dietary filters, step-by-step instructions, and nutritional information.",
-    "image": "projects/enroll1.webp",
-    "demo": "https://recipe-finder.xaibandala.vercel.app/"
-  },
-  {
     "id": 7,
     "title": "PHP blog system",
     "description": "A progressive web app for tracking workouts, nutrition, and fitness goals. Includes exercise database, workout planning, and progress visualization.",
@@ -93,6 +79,30 @@
     "title": "Invoice Generator",
     "description": "A Laravel + React (Vite, shadcn/ui) monolith for freelancers and small businesses to manage customers, products/services, and invoices, including PDF generation and status tracking. Features customer and product/service CRUD, server-side money calculations with bcmath, a draft-to-paid invoice lifecycle with overdue detection, and a dashboard with revenue and invoice stats.",
     "image": "projects/invoicegenerator.webp",
+    "technologies": ["React", "Laravel", "MySQL"]
+  },
+  {
+    "id": 16,
+    "title": "School Management System",
+    "description": "A production-oriented School Management System built as a single Laravel + React monolith with RBAC-driven administration covering Students, Teachers, Classes, Subjects, Enrollment, Attendance, Grades, Schedules, Finance, Announcements, Reports, and Audit Logging.",
+    "image": "projects/school-management.webp",
+    "images": [
+      "projects/school-management.webp",
+      "projects/school-management-2.webp",
+      "projects/school-management-3.webp"
+    ],
+    "technologies": ["React", "Laravel", "MySQL"]
+  },
+  {
+    "id": 17,
+    "title": "RentWise",
+    "description": "A Laravel + React (Material UI) monolith for landlords and property managers to track properties, units, tenants, rental agreements, rent billing, payments, and automated rent reminders. Features a dashboard with expected vs. collected rent charts, a rent calendar for due dates and lease expirations, reminder settings with pluggable channels (in-app + email), and reports (Monthly Collection, Outstanding Rent, Property Income, Tenant Payment) with CSV export and PDF receipts.",
+    "image": "projects/rentwise.webp",
+    "images": [
+      "projects/rentwise.webp",
+      "projects/rentwise-2.webp",
+      "projects/rentwise-3.webp"
+    ],
     "technologies": ["React", "Laravel", "MySQL"]
   }
 ]

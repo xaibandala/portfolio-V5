@@ -21,13 +21,6 @@
     "demo": "https://xaibandala2.vercel.app/"
   },
   {
-    "id": 4,
-    "title": "Couple Simple Responsive Portfolio",
-    "description": "A simple, responsive portfolio website for a couple, showcasing their love story and shared interests. Built with React, Vite, and Tailwind CSS.",
-    "image": "projects/loml1.webp",
-    "demo": "https://lomlv2.vercel.app/"
-  },
-  {
     "id": 5,
     "title": "Oyeee Petshop System",
     "description": "Simple capstone project using PHP.",
@@ -47,13 +40,6 @@
     "description": "A progressive web app for tracking workouts, nutrition, and fitness goals. Includes exercise database, workout planning, and progress visualization.",
     "image": "projects/blog1.webp",
     "demo": "https://fitness-tracker.xaibandala.vercel.app/"
-  },
-  {
-    "id": 8,
-    "title": "Wedding Web Portfolio",
-    "description": "A modern blog platform with AI-assisted content generation. Features include markdown support, syntax highlighting, and automated content suggestions.",
-    "image": "projects/ai1.webp",
-    "demo": "https://ai-blog.xaibandala.vercel.app/"
   },
   {
     "id": 9,
@@ -79,8 +65,14 @@
   {
     "id": 12,
     "title": "Coffee Shop Website",
-    "description": "A modern, responsive coffee shop website featuring an elegant menu, cozy brand aesthetic, and smooth animations. Built to showcase products, store info, and a warm, inviting online presence for a local café.",
-    "image": "projects/coffeeshop.webp"
+    "description": "A full-stack Coffee Shop Management System for Coffee Project Mintal (Davao City) — a Laravel + React monolith combining a customer-facing website with a POS/admin back office. The public site offers menu browsing and cart/checkout with no login required, while the admin side includes a sales dashboard, a fast POS with discounts and receipts, inventory tracking, order and customer management, role-based users, and sales reports.",
+    "image": "projects/coffeeshop.webp",
+    "images": [
+      "projects/coffeeshop.webp",
+      "projects/coffeeshop-2.webp",
+      "projects/coffeeshop-3.webp"
+    ],
+    "technologies": ["React", "Laravel", "MySQL"]
   },
   {
     "id": 13,
@@ -94,6 +86,13 @@
     "title": "FixDesk",
     "description": "FixDesk is a help desk ticketing system built with Laravel, React, and MySQL. It lets teams create, assign, track, and resolve support tickets from submission to closure, with status management and reporting to streamline customer support operations.",
     "image": "projects/fixdesk.webp",
+    "technologies": ["React", "Laravel", "MySQL"]
+  },
+  {
+    "id": 15,
+    "title": "Invoice Generator",
+    "description": "A Laravel + React (Vite, shadcn/ui) monolith for freelancers and small businesses to manage customers, products/services, and invoices, including PDF generation and status tracking. Features customer and product/service CRUD, server-side money calculations with bcmath, a draft-to-paid invoice lifecycle with overdue detection, and a dashboard with revenue and invoice stats.",
+    "image": "projects/invoicegenerator.webp",
     "technologies": ["React", "Laravel", "MySQL"]
   }
 ]

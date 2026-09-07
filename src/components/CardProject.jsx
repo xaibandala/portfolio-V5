@@ -21,14 +21,15 @@ const techIcons = {
   'MySQL': 'mysql.svg'
 };
 
-const CardProject = ({ 
+const CardProject = ({
   id,
   title,
   description,
   image,
+  images,
   technologies = [],
   github,
-  demo 
+  demo
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -132,6 +133,7 @@ const CardProject = ({
 
       <ProjectCardModal
         image={image}
+        images={images}
         title={title}
         description={description}
         demo={demo}

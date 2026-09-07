@@ -1,8 +1,24 @@
-import React, { useEffect, useRef } from "react";
-import { X, ExternalLink } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { X, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
-const ProjectCardModal = ({ image, title, description, demo, open, onClose }) => {
+const ProjectCardModal = ({ image, images, title, description, demo, open, onClose }) => {
   const dialogRef = useRef(null);
+  const gallery = images && images.length > 0 ? images : image ? [image] : [];
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (open) setActiveIndex(0);
+  }, [open]);
+
+  const showPrev = (e) => {
+    e.stopPropagation();
+    setActiveIndex((i) => (i === 0 ? gallery.length - 1 : i - 1));
+  };
+
+  const showNext = (e) => {
+    e.stopPropagation();
+    setActiveIndex((i) => (i === gallery.length - 1 ? 0 : i + 1));
+  };
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -61,9 +77,46 @@ const ProjectCardModal = ({ image, title, description, demo, open, onClose }) =>
           <X className="h-5 w-5" />
         </button>
 
-        {image && (
+        {gallery.length > 0 && (
           <div className="relative overflow-hidden rounded-t-2xl aspect-video bg-slate-800">
-            <img src={image} alt={title} className="w-full h-full object-cover" />
+            <img src={gallery[activeIndex]} alt={title} className="w-full h-full object-cover" />
+
+            {gallery.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={showPrev}
+                  aria-label="Previous image"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full p-2 bg-black/50 hover:bg-black/70 text-white/80 hover:text-white transition-colors duration-200"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={showNext}
+                  aria-label="Next image"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-2 bg-black/50 hover:bg-black/70 text-white/80 hover:text-white transition-colors duration-200"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                  {gallery.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveIndex(i);
+                      }}
+                      aria-label={`Show image ${i + 1}`}
+                      className={`h-2 w-2 rounded-full transition-colors duration-200 ${
+                        i === activeIndex ? "bg-white" : "bg-white/40 hover:bg-white/70"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         )}
 

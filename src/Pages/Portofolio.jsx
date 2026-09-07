@@ -331,6 +331,7 @@ export default function FullWidthTabs() {
                       title={project.title}
                       description={project.description}
                       image={project.image}
+                      images={project.images}
                       technologies={project.technologies || []}
                       github={project.github}
                       demo={project.demo}
